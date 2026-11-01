@@ -121,7 +121,7 @@ const li=a=>`<ul class="l">${a.map(x=>`<li>${T(x)}</li>`).join('')}</ul>`;
 const big=(t,s)=>`<div class=cen style="display:flex;flex-direction:column;align-items:center"><div class="big r">${t}</div><p class="r sup" style="margin-top:.5em">${s||''}</p></div>`;
 const names=['وضاح علي','يحيى نزار','لؤي أحمد','مالك معاذ','عبد الله الزين','محمد آل ساري','مروان معاذ','سعد شوبق'].map(n=>`<span>${n}</span>`).join('');
 const SUP='تحت إشراف: أ. حسين الناصر';
-const MIN=[1,2,2,2,2,2,2,2,2,2,1,2,2,2,2,4,3,3,1,1,3,3,2,1,1];
+const MIN=[1,1,2,2,2,2,2,2,2,2,1,2,2,2,2,5,5,1,1,3,4,2,1,1];
 const Q={};
 const qz=(id,items)=>{Q[id]={items,i:0,s:0,a:0};return `<div class="qz card r" id="qz${id}"></div>`};
 function rq(id){const z=Q[id],el=$('qz'+id);z.a=0;
@@ -138,6 +138,7 @@ S.push(hd('أهداف الدرس')+gr([
  cd('<h3>أهداف الدرس</h3>'+li(['يوضّح الطالب المقصود بالملح المائي ويربط اسمه بتركيبته.','يحدّد صيغة الملح المائي من البيانات المختبرية.'])),
  cd('<h3>الفكرة الرئيسية للدرس السابق</h3>الصيغة الأولية والصيغة الجزيئية.'),
  cd('<h3>الفكرة الرئيسية لهذا الدرس</h3>الصيغة الجزيئية لمركب ما هي مضاعف عددي صحيح لصيغته الأولية.')]));
+S.push(hd('الفكرة الرئيسية للدرس')+big('الصيغة الجزيئية','لمركب ما هي مضاعف عددي صحيح لصيغته الأولية'));
 S.push(hd('الصيغة الأولية')+gr([
  cd('<h3>التعريف</h3>الصيغة الأولية هي أبسط نسبة عددية صحيحة بين أعداد ذرات العناصر في المركب.'),
  cd('<h3>الشرح</h3>'+li(['تُحسب من كتل العناصر أو نسبها المئوية.','نحوّل الكتل إلى مولات، ثم نقسم الجميع على أصغر عدد مولات.','الجلوكوز [[C6H12O6]] صيغته الأولية [[CH2O]].','فوق أكسيد الهيدروجين [[H2O2]] صيغته الأولية [[HO]].']))]));
@@ -216,6 +217,7 @@ S.push(hd('خلاصة الدرس')+li(['الصيغة الجزيئية = مضاع
 S.push(big('أوراق عمل للدرس','تدريب يرسّخ الفهم'));
 S.push(`<div class=cen style="display:flex;flex-direction:column;align-items:center"><div class="big r">شكرًا لإصغائكم</div><p class="r" style="font-size:1.3em;max-width:34em;margin:.6em 0">العلم يبدأ بسؤال صغير، وكل قطرة ماء محتجزة في بلورة تذكّرنا أن وراء كل شيء بسيط سرًّا ينتظر من يكتشفه. فلنبقَ فضوليين.</p><div class="chips r">${names}</div><p class="sup r">${SUP}</p></div>`);
 
+S.splice(17,1);S.splice(1,1);
 const app=$('app');let cur=-1,t0=Date.now();
 S.forEach((h,i)=>{const s=document.createElement('section');s.className='slide';s.style.setProperty('--e','e'+(i%4));s.innerHTML=T(h.replace(/\[\[(.+?)\]\]/g,'[[$1]]'));
  s.querySelectorAll('.r').forEach((e,k)=>e.style.setProperty('--i',k));app.appendChild(s)});
